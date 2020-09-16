@@ -1,5 +1,4 @@
 import React from 'react'
-import Item from "./Item";
 
 export default function ListItem (props) {
 
@@ -8,7 +7,7 @@ export default function ListItem (props) {
     const counterPlus = props.counterPlus;
     const counterMinus = props.counterMinus;
     const counterReset = props.counterReset;
-    const addCounter = props.addCounter;
+    const counterDelete = props.counterDelete;
 
     const counterPlusHandler = () => {
         return counterPlus(index);
@@ -22,6 +21,10 @@ export default function ListItem (props) {
         return counterReset(index);
     }
 
+    const counterDeleteHandler = () => {
+        return counterDelete(index);
+    }
+
 
 
     return (
@@ -30,6 +33,7 @@ export default function ListItem (props) {
             {el}
             <button onClick={counterPlusHandler}>+</button>
             <button onClick={counterResetHandler}>RESET</button>
+            <button onClick={counterDeleteHandler}>Delete</button>
         </div>
     )
 }

@@ -23,6 +23,7 @@ function App() {
         setCounter(result);
     }
 
+
     const counterReset = (index) => {
         const result = counter.map((el, i) =>
             (index === i) ? 0 : el);
@@ -35,13 +36,19 @@ function App() {
         setCounter(result)
     }
 
+    const counterDelete = (index) => {
+        let result = [...counter].filter((el, i) =>
+            (index !== i));
+        setCounter(result);
+    }
+
     return (
         <div className="App">
 
             {counter.map((el, index) =>
                 <ListItem key={index} el={el} index={index} counterPlus={counterPlus} counterMinus={counterMinus}
-                counterReset={counterReset}/>)}
-            <Item addCounter={addCounter} />
+                counterReset={counterReset} counterDelete={counterDelete}/>)}
+            <Item addCounter={addCounter}/>
         </div>
     );
 }
